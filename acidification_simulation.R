@@ -1,5 +1,5 @@
 ## Loading the estimated joing distribution (object: mcmctot)
-load("RData/output_model3.RData")
+load("Data/output_model3.RData")
 source("acidification_simulation_functions.R")
 set.seed(408)
 

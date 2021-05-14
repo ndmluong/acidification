@@ -1,0 +1,52 @@
+# Description of hierarchical model
+model
+{
+  # Definition du modele
+  
+  delta[1] <- deltaAir ## effect of packaging under Air on acidification rate
+  delta[2] <- deltaMAP1 ## effect of packaging under MAP1:70%O2-30%CO2 on acidification rate
+  delta[3] <- deltaMAP2 ## effect of packaging under MAP2:70%O2-30%CO2 on acidification rate
+  
+  for (r in 1:Nr) { ## for each production batch
+    
+    pH0[r] ~ dnorm(mupH0, taupH0) ## batch-dependent initial value of pH
+    
+    for (p in 1:Np) { ## for each packaging
+      
+      for (i in 1:Nt) { ## for each time point
+        
+        m[r,p,i] <- ifelse(Time[r,p,i] <= theta,  -exp((pow(Lactate[r,p,i],n) * lambda + delta[p])) * Time[r,p,i] + pH0[r], 
+                                                  -exp((pow(Lactate[r,p,i],n) * lambda + delta[p])) * theta + pH0[r])
+        pH[r,p,i] ~ dnorm(m[r,p,i], taupH)
+      }
+      
+    }
+  }
+  
+  
+  
+  # Definition des a priori
+  theta <- 15
+  n ~ dunif(-3,3)
+  
+  mupH0 ~ dnorm(5.84, 82.64) ## a priori (Lerasle et al. 2014)
+  sigmapH0 ~ dnorm(0, 1000)T(0,)
+  taupH0 <- 1 / pow(sigmapH0,2)
+  
+  sigmapH ~ dnorm(0, 1000)T(0,)
+  taupH <- 1 / pow(sigmapH,2)
+  
+  lambda ~ dunif(-1,1)
+  
+  deltaAir ~ dunif(-10,10)
+  deltaMAP1 ~ dunif(-10,10)
+  deltaMAP2 ~ dunif(-10,10)
+  
+}
+
+
+
+
+
+
+

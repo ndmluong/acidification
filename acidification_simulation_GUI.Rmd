@@ -9,7 +9,7 @@ runtime: shiny
 ---
 
 ```{r Sources, echo=FALSE, message=FALSE, warning=FALSE}
-load("output_model3.RData")
+load("Data/output_model3.RData")
 source("acidification_simulation_functions.R")
 set.seed(408)
 ```

@@ -198,7 +198,8 @@ save.image(file = "output_model2.RData")
 save.image(file = "output_model3.RData")
 save.image(file = "output_model4.RData")
 
-load(file = "output_model1.RData")
+
+
 
 
 
@@ -207,6 +208,8 @@ load(file = "output_model1.RData")
 ################# POSTERIOR DISTRIBUTION: PLOT AND PREDICTION ################
 ##############################################################################
 source("acidification_simulation_functions.R")
+load(file = "output_model3.RData") ## chosen model
+set.seed(408)
 
 ## Extraction a point estimate (median value) of each parameter
 pt_estim <- apply(mcmctot, 2, quantile, probs=0.5)

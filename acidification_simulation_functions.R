@@ -1,21 +1,21 @@
 ####################################################################
 ####################################################################
-## Fonction permettant de predire les valeurs du pH a partir de la distribution jointe a un temps donne
+## Fonction for predicting, from the joint distribution, pH value at one or several given time points
 f_pred_pH <- function(jd, time_pred, lactate_pred) {
-  ## Fonction enabling to predict, from the posterioir joint distribution of parameters,
-  ## the pH values for each of 9 process conditions and at different given time points.
+  ## Fonction enabling to predict, from the posterior joint distribution of parameters,
+  ## the pH values for each process conditions and at different given time points.
   ## ## INPUT:
-  ##      - jd : data frame. Posterioir joint distribution of parameters (MCMC) with the columns below
-  ##            + deltaAir: acidification rate process "Air packaging"
-  ##            + deltaMAP1: 
-  ##            + deltaMAP2: 
+  ##      - jd : data frame. Posterior joint distribution of parameters (MCMC) with the columns (model parameters) below
+  ##            + deltaAir: ## effect of packaging under Air on acidification rate
+  ##            + deltaMAP1: ## effect of packaging under MAP1:70%O2-30%CO2 on acidification rate
+  ##            + deltaMAP2: ## effect of packaging under MAP2:70%O2-30%CO2 on acidification rate
   ##            + lambda: 
-  ##            + mupJH0: 
-  ##            + sigmapH0:
-  ##            + sigmapH: 
+  ##            + mupJH0: ## mean initial pH value
+  ##            + sigmapH0: ## standard deviation of the initial pH across batches
+  ##            + sigmapH: ## standard deviation of the pH across samples
   ##            + theta: stabilisation time
-  ##      - time_pred : vector. Time points at which the pH values are predicted for each process conditions
-  ##      - lactate_pred: numeric. Lactate concentration for prediction
+  ##      - time_pred (numeric vector). Time points at which the pH values are predicted for each process conditions
+  ##      - lactate_pred (numeric vector). Lactate concentration for prediction
   ## ## OUTPUT:
   ##      - pH_pred: three-way array [i,p,tp] containing the predicted value for the iteration i, 
   ##                packaging p, for the lactate concentration lactate_pred and at time point tp
@@ -73,7 +73,7 @@ f_IC_Band <- function(predicted_data) {
   
   IC_band <- data.frame()
   
-  Atm <- c("Air", "MAP1", "MAP2")
+  Atm <- c("Air", "MAP1", "MAP2") ## to be renamed conveniently
   
   for (l in 1:length(predicted_data$lactate_pred)) {
     for (p in 1:length(Atm)) {
@@ -81,17 +81,17 @@ f_IC_Band <- function(predicted_data) {
         IC_point <- cbind(Atm[p],
                           predicted_data$lactate_pred[l],
                           predicted_data$time_pred[tp], 
-                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.025)),
-                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.25)),
-                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.5)),
-                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.75)),
-                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.975)))
+                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.025)), ## quantile 2.5%
+                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.25)), ## quantile 25%
+                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.5)), ## median value 
+                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.75)),  ## quantile 75%
+                          unname(quantile(predicted_data$pH_pred[,l,p,tp], probs=0.975)))  ## quantile 97.5%
         IC_band <- rbind(IC_band, IC_point)
       }
     }
   }
   
-  colnames(IC_band) <- c("Atm", "Lactate", "Time", "qInf", "qInfMed", "qMed", "qSupMed", "qSup")
+  colnames(IC_band) <- c("Atm", "Lactate", "Time", "qInf", "qInfMed", "qMed", "qSupMed", "qSup") ## to be renamed if needed
   
   IC_band$Time <- as.numeric(IC_band$Time)
   IC_band$qInf <- as.numeric(IC_band$qInf)
@@ -110,7 +110,7 @@ f_point_pred <- function(obs, parms) {
   ## INPUT
   ##  - obs: dataframe. Observed data with at least the columns
   ##    + Time
-  ##    + Atm (factor) with the following levels
+  ##    + Atm (factor) with the following levels (to be adapted if needed)
   ##        + Air
   ##        + MAP1
   ##        + MAP2

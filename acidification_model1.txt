@@ -1,7 +1,8 @@
-# Description du modele hierarchique
+# Description of the hierarchical model
+# The formulation used herein is potassium lactate. The lactate contents, denoted Lactate, is included in the model as a variate. The effect of the different modified atmosphere conditions modelled as multi-level factor are denoted 'deltaAir', 'deltaMAP1', 'deltaMAP2'. For further use of the model, rename these variates conveniently  in the description below as well as in the dataset. 
 model
 {
-  # Definition du modele
+  # Model definition
   
   delta[1] <- deltaAir ## effect of packaging under Air on acidification rate
   delta[2] <- deltaMAP1 ## effect of packaging under MAP1:70%O2-30%CO2 on acidification rate
@@ -25,7 +26,7 @@ model
   
   
   
-  # Definition des a priori
+  # Definition of all prior distributions
   theta <- 15
   n <- 1
   

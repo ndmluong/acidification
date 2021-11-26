@@ -18,7 +18,8 @@ The collected experimental data should be structured in table (Excel spreadsheet
 Check the R script: "acidification_bayesianinference.R"
 
 ## Associated article (in submission)
-Modelling acidification of fresh meat products in a study framework of spoilage depending on formulations and modified atmosphere: a Bayesian approach.
+A Bayesian approach to describe and simulate the pH evolution of fresh meat products
+depending on the preservation conditions.
 
 Authors: Ngoc-Du Martin Luong, Louis Coroller, Monique Zagorec, Nicolas Moriceau, Valérie Anthoine, Sandrine Guillou, Jeanne-Marie Membré
 

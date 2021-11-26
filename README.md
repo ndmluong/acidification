@@ -8,9 +8,9 @@ The formulation used in our is potassium lactate. The lactate contents, denoted 
 
 ## To get started
 The collected experimental data should be structured in table (Excel spreadsheet or .txt files) with at least the following columns
-- SampleCode: the unique ID the sample
+- SampleCode: the unique ID of the sample
 - Atm: the modified atmosphere
-- Lactate (can be renamed in the dataset and in the script if applied for other formulations): lactate concentrations
+- Lactate (can be renamed in the dataset and in the scripts if applied for other formulations): lactate concentrations
 - Time: sampling time (storage time)
 - pH
 

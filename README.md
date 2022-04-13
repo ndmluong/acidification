@@ -18,9 +18,7 @@ The collected experimental data should be structured in table (Excel spreadsheet
 Check the R script: "acidification_bayesianinference.R"
 
 ## Associated journal article
-Luong N.-D.M., Coroller L., Zagorec M., Moriceau N., Anthoine V., Guillou S., Membré J.-M., 2022. A Bayesian approach to describe and simulate the pH evolution of fresh meat products depending on the preservation conditions. Foods 11 (8), 1114.
-
-https://doi.org/10.3390/foods11081114
+Luong N.-D.M., Coroller L., Zagorec M., Moriceau N., Anthoine V., Guillou S., Membré J.-M., 2022. A Bayesian approach to describe and simulate the pH evolution of fresh meat products depending on the preservation conditions. Foods 11 (8), 1114. https://doi.org/10.3390/foods11081114
 
 R/git contributor: Ngoc-Du Martin Luong
 

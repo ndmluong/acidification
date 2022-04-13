@@ -1,3 +1,11 @@
+### Associated journal article
+A Bayesian approach to describe and simulate the pH evolution of fresh meat products depending on the preservation conditions.
+Authors: Ngoc-Du Martin Luong, Louis Coroller, Monique Zagorec, Nicolas Moriceau, Valérie Anthoine, Sandrine Guillou, Jeanne-Marie Membré
+https://doi.org/10.3390/foods11081114
+
+R/git contributor: Ngoc-Du Martin Luong (ngoc-du.luong@anses.fr)
+Corresponding author: Jeanne-Marie Membré (jeanne-marie.membre@oniris-nantes.fr)
+
 ## Overview
 This repository provides several R scripts enabling to perform numerical simulations for pH kinetics of meat products under different user-defined formulation-atmosphere conditions. These scripts give possibilities to apply a Bayesian modelling procedure to describe pH changes and to estimate acidification rates for experimental data collected on food matrices, with user-defined atmosphere factors and/or formulations (expressed as concentrations). 
 
@@ -16,12 +24,3 @@ The collected experimental data should be structured in table (Excel spreadsheet
 
 ## Modelling procedure
 Check the R script: "acidification_bayesianinference.R"
-
-## Associated article (in submission)
-A Bayesian approach to describe and simulate the pH evolution of fresh meat products depending on the preservation conditions.
-
-Authors: Ngoc-Du Martin Luong, Louis Coroller, Monique Zagorec, Nicolas Moriceau, Valérie Anthoine, Sandrine Guillou, Jeanne-Marie Membré
-
-R/git contributor: Ngoc-Du Martin Luong (ngoc-du.luong@anses.fr)
-
-Corresponding author: Jeanne-Marie Membré (jeanne-marie.membre@oniris-nantes.fr)

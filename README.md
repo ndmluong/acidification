@@ -2,7 +2,7 @@
 This repository provides several R scripts enabling to perform numerical simulations for pH kinetics of meat products under different user-defined formulation-atmosphere conditions. These scripts give possibilities to apply a Bayesian modelling procedure to describe pH changes and to estimate acidification rates for experimental data collected on food matrices, with user-defined atmosphere factors and/or formulations (expressed as concentrations). 
 
 ### Provided dataset
-The dataset corresponding to our study is provided: pH measurement of different meat samples made in different batches ("Lot"), with different formulations ("Lactate"), packed under several modified atmosphere ("Atm"), and measured at different time points ("Time").
+The dataset corresponding to our study is provided: pH measurement of different meat samples made in different batches (*Lot*), with different formulations (*Lactate*), packed under several modified atmosphere (*Atm*), and measured at different time points (*Time*).
 
 The formulation used in our is potassium lactate. The lactate contents, denoted *Lactate* herein, is included in the model as a variate. The effect of the different modified atmosphere conditions modelled as multi-level factor (3 levels in our study) are denoted *delta_Air*, *delta_MAP1* and *delta_MAP2*, repsectively. For further use of the model, rename these variates in the scripts conveniently as well as in the dataset. 
 

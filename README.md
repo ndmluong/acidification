@@ -1,3 +1,6 @@
+[![DOI:10.3390/foods11081114](doi.org/10.3390/foods11081114)](doi.org/10.3390/foods11081114)
+
+
 ## Overview
 This repository provides several R scripts enabling to perform numerical simulations for pH kinetics of meat products under different user-defined formulation-atmosphere conditions. These scripts give possibilities to apply a Bayesian modelling procedure to describe pH changes and to estimate acidification rates for experimental data collected on food matrices, with user-defined atmosphere factors and/or formulations (expressed as concentrations). 
 
